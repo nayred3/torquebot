@@ -15,7 +15,7 @@ public class TorqueBot {
         // Main method
 
         DiscordApi api = new DiscordApiBuilder()
-            .setToken("ODg0NDg2MTI5MDY2MzQ0NDYw.YTZL5g.LyacHL1xB8B69OjGVxKTSdkNCqY")
+            .setToken(Credentials.token)
             .login().join();
 
         api.addMessageCreateListener(event -> {
