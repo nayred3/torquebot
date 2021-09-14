@@ -1,4 +1,5 @@
 package org.texastorque;
+
 // Example import
 import org.javacord.api.DiscordApi;
 import org.javacord.api.DiscordApiBuilder;
@@ -11,7 +12,7 @@ import org.javacord.api.DiscordApiBuilder;
 public class TorqueBot {
     public static void main(String[] args) {
         System.out.println("TorqueBot");
-        // Main method     
+        // Main method
 
         DiscordApi api = new DiscordApiBuilder().setToken(Credentials.APITOKEN).login().join();
 
@@ -24,4 +25,5 @@ public class TorqueBot {
 }
 
 /* _ */ // Fred
+//
 //
