@@ -1,7 +1,10 @@
 package org.texastorque;
-// Example import
+
+import java.util.Optional;
+
 import org.javacord.api.DiscordApi;
 import org.javacord.api.DiscordApiBuilder;
+import org.javacord.api.entity.channel.ServerVoiceChannel;
 
 /**
  * The main class for the TorqueBot.
@@ -10,19 +13,45 @@ import org.javacord.api.DiscordApiBuilder;
  */
 public class TorqueBot {
     public static void main(String[] args) {
-        System.out.println("TorqueBot");
-        // Main method     
+
+        Token token = new Token("token");
+        BadWords badWords = new BadWords();
 
         DiscordApi api = new DiscordApiBuilder()
-            .setToken(Credentials.token)
+            .setToken(token.getToken())
             .login().join();
 
+        
         api.addMessageCreateListener(event -> {
             if (event.getMessageContent().equalsIgnoreCase("!ping")) {
                 event.getChannel().sendMessage("I work!");
             }
         });
+        
+        api.addMessageCreateListener(event -> {
+            for (String word : badWords)
+                if (event.getMessageContent().equalsIgnoreCase(Credential.banwords[i])) {
+                    event.getChannel().sendMessage("No Profanity!");
+                }
+            };
+        });
+        
+        api.addMessageCreateListener(event -> {
+            long number = 885686322034016289L;
+            ServerVoiceChannel channel = event.getApi().getServerVoiceChannelById(number).get();
+
+            channel.connect().thenAccept(audioConnection -> {
+
+            }).exceptionally(e -> {
+
+                e.printStackTrace();
+                return null;
+            });
+        });
+
     }
 }
 
+
 /*_*/   // Fred 
+

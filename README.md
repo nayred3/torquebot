@@ -14,14 +14,14 @@ brew install maven
 To build to a .jar run
 
 ```sh
-mvn package
+mvn clean compile assembly:single
 ```
 
 The .jar will be generated under `target`. It can be run like
 
 ```sh
 # java -jar target/<name>.jar
-java -jar target/torquebot-0.1.0.jar
+java -jar target/torquebot-0.1.0-jar-with-dependencies.jar
 ```
 
 To clean the targets directory run
