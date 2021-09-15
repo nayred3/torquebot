@@ -20,11 +20,13 @@ public class Token {
         try {
             File file = new File(path);
             try {
-                token = (new Scanner(file)).nextLine();
-            } catch Exception scannerError {
+                Scanner scanner = new Scanner(file);
+                token = scanner.nextLine();
+                scanner.close();
+            } catch (Exception scannerError) {
                 System.out.printf("[ERROR] - Token file could not be read!\n");
             }
-        } catch Exception fileError {
+        } catch (Exception fileError) {
             System.out.printf("[ERROR] - Token file not found!\n");
         }
     }
@@ -36,9 +38,9 @@ public class Token {
      * @return token
      */
     public String getToken() {
-        return token == null ? token : throw new Exception(
-                "[ERROR] - Token field is null!\n"
-        );
+        if (token == null)
+            System.out.printf("[ERROR] - Token field is null!\n");
+        return token;
     }
 }
 

@@ -32,8 +32,8 @@ public class BadWords {
     }
 
     public String[] getWordsArray() {
-        return (words.length == 0) ? words : throw new Exception(
-            "[ERROR] - Bad words array is null!\n"
-        );
+        if (words.length == 0)
+            System.out.printf("[WARNING] - Bad words array is null!\n");
+        return words;
     }
 }
